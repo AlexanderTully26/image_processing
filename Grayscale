@@ -1,18 +1,80 @@
 from PIL import Image
 
-def grayscale(image):  #convert into black and white function
+option1 = 0
+name = "Nothing"
+
+#image = Image.open("/Users/alexander.tully26/Downloads/AirCarTest.jpg")
+
+image = Image.open("/Users/alexander.tully26/Downloads/Colorful_bird.jpeg") #Change Image here
+
+def grayscale(image):
+    """Basic Equal Balance"""
     pixels = image.load()
     width, height = image.size
  
     for x in range(width):
         for y in range(height):
             r, g, b = pixels[x, y]
-           # gray = int(0.2989 * r + 0.5870 * g + 0.1140 * b)
             gray = int((r + g + b)/3)
+            pixels[x, y] = (gray, gray, gray)
+    return image
+
+
+def grayscaleVTwo(image):
+    """Decomposition grayscale"""
+    pixels = image.load()
+    width, height = image.size
+ 
+    for x in range(width):
+        for y in range(height):
+            r, g, b = pixels[x, y]
+            gray = ((Max(r, g, b) + Min(r, g, b) ) / 2)
+            pixels[x, y] = (gray, gray, gray)
+    return image
+
+def grayscaleVThree(image):
+    """only green channel values"""
+    pixels = image.load()
+    width, height = image.size
+ 
+    for x in range(width):
+        for y in range(height):
+            r, g, b = pixels[x, y]
+            gray = r
             pixels[x, y] = (gray, gray, gray)
 
     return image
 
-image = Image.open("/Users/alexander.tully26/Downloads/AirCarTest.jpg") #Cant upload image to github so change name in this line
-grayscale_image = grayscale(image)
-grayscale_image.save("grayscale_image.jpg")
+
+
+
+while (option1 != 1) and (option1 != 2) and (option1 != 3):
+    option1 = int(input("Whould you like to use basic grayscale (1), Decomposition grayscale (2) or only green channel values (3)?"))
+
+    if option1 == 1:
+        
+        grayscale_basic_image = grayscale(image)
+        grayscale_basic_image.save("grayscale_basic_image.jpg")
+       # print("You can find the image under the name ")
+        name = "grayscale_basic_image"
+        ishow = grayscale_basic_image
+
+    elif option1 == 2:
+        Decomposition_grayscale_image = grayscaleVTwo(image)
+        Decomposition_grayscale_image.save("Decomposition_grayscale_image.jpg")
+   #     print("You can find the image under the name Decomposition_grayscale")
+        name = "Decomposition_grayscale_image"
+        ishow = Decomposition_grayscale_image
+
+    elif option1 == 3:
+        green_channel_grayscale_image = grayscaleVThree(image)
+        green_channel_grayscale_image.save("green_channel_grayscale_image.jpg")
+        name = "green_channel_grayscale_image"
+        ishow = green_channel_grayscale_image
+
+    else:
+        print("Value was not an option try again")
+
+print("You can find the image under the name", name + ".jpg")
+
+ishow.show()
