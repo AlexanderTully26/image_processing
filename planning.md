@@ -37,6 +37,7 @@ Read about Box Blur (**[Links](https://en.wikipedia.org/wiki/Box_blur)**) to an 
 ### Plan:
 
 
+
 ## Color-dithering Tool:
 ### Instructions:
 Read about F-S Dithering (**[Links](https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering)**) to an external site. and add the functionality to your project. 
