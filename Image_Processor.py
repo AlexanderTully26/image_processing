@@ -1,15 +1,17 @@
 from PIL import Image
+import random
 
 tool_selection = 0
 option1 = 0
 quesionf = 0
 name = "Nothing"
-
 filterlistnum = 0
+namenum = 0
+
 
 #image = Image.open("/Users/alexander.tully26/Downloads/AirCarTest.jpg")
 
-image = Image.open("/Users/alexander.tully26/Downloads/Colorful_bird.jpeg") #Change Image here
+image = Image.open("/Users/alexander.tully26/Downloads/Screen Shot Jan 8 2025 from PNG to JPG.jpg") #Change Image here
 
 filterlist = [image]
 
@@ -397,17 +399,19 @@ while tool_selection not in [1, 2, 3, 4, 5, 6]:
         print("Value was not an option try again")
 
     print("Making Image...")
+    print("It will show photo but return to console to continue.")
     filterlist.append(ishow)
     filterlistnum += 1
+    print("You can find the image under the name", name + str(namenum) + ".jpg, and it will open on your computer now...")
     ishow.show()
-    print("You can find the image under the name", name + ".jpg, and it will open on your computer now...")
 
     while quesionf == 0:
         quesionf = int(input("Would you like to do finnish editing the image(1), add another filter (2), or undo the last filter (3)"))
         
         if quesionf == 2: 
             tool_selection = 0
-            image = ishow     
+            image = ishow
+            namenum = random.randint(2, 1000)     
 
         elif quesionf == 1:
             tool_selection = 1
@@ -425,12 +429,13 @@ while tool_selection not in [1, 2, 3, 4, 5, 6]:
                 
             quesionf = 0
             
+          
            
     quesionf = 0    
 
             
     
 
-print("You can find your final image under the name", name + ".jpg, and it will open on your computer now...")
+print("You can find your final image under the name", name + str(namenum) + ".jpg, and it will open on your computer now...")
 print("Thank You")
 ishow.show()
