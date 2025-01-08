@@ -17,20 +17,20 @@ In the command line I have already set up a system?
 - Complete 
 
 ### Blurring toolx
-- Working But Errors 
+- Complete 
 
 ### Color-dithering tool
 
-- Not Working 
+- Complete 
 
 ### Sharpening tool
 
-- Ehhh
+- Complete 
 
 ### Smoothing 
 
-- Researched not started 
+- Complete 
 
 ### Laplacian
 
-- Researched not started
+- Complete 
